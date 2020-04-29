@@ -1,0 +1,43 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  EnabledByDefault: true
+  Exclude:
+    - bin/**/*
+    - node_modules/**/*
+    - config/environments/*.rb
+    - config.ru
+    - config/application.rb
+    - config/boot.rb
+    - config/puma.rb
+    - db/schema.rb
+
+Bundler/GemComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/channels/application_cable/connection_test.rb'
+    - 'test/test_helper.rb'
+
+Style/Copyright:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  Exclude:
+    - db/migrate/*.rb
+    - Gemfile
+  IgnoredMethods:
+    - redirect_to
+    - render
+    - require
+    - require_relative
+
+Style/MissingElse:
+  Enabled: false
