@@ -1,16 +1,14 @@
 require "application_system_test_case"
 
 class HeadwordsTest < ApplicationSystemTestCase
-  setup do
-    @headword = headwords(:one)
-  end
-
   test "visiting the index" do
     visit headwords_url
     assert_selector "h1", text: "Headwords"
   end
 
   test "creating a Headword" do
+    @headword = build_stubbed(:headword)
+
     visit headwords_url
     click_on "New Headword"
 
@@ -22,6 +20,8 @@ class HeadwordsTest < ApplicationSystemTestCase
   end
 
   test "updating a Headword" do
+    @headword = create(:headword)
+
     visit headwords_url
     click_on "Edit", match: :first
 
@@ -33,6 +33,8 @@ class HeadwordsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Headword" do
+    @headword = create(:headword)
+
     visit headwords_url
     page.accept_confirm do
       click_on "Destroy", match: :first
