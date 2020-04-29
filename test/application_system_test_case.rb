@@ -5,5 +5,8 @@ require 'test_helper'
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include FactoryBot::Syntax::Methods
 
-  driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+  driven_by :selenium, using: :headless_chrome do |driver_options|
+    driver_options.add_argument('--disable-dev-sim-usage')
+    driver_options.add_argument('--no-sandbox')
+  end
 end

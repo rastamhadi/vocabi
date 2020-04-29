@@ -1,0 +1,65 @@
+name: CI
+on:
+  - push
+  - pull_request
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: ruby:2.6.2
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgresql://vocabi:vocabi@postgres:5432/vocabi_test
+    services:
+      postgres:
+        image: postgres:12.2-alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: vocabi
+          POSTGRES_PASSWORD: vocabi
+          POSTGRES_DB: vocabi_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Cache gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+      - name: Install node
+        uses: actions/setup-node@v1
+      - name: Install node modules
+        run: |
+          npm install -g yarn
+          bin/yarn install
+      - name: Install gems
+        run: bundle install --path vendor/bundle --jobs 4 --retry 3
+      - name: Install Google Chrome
+        run: |
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+          echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
+          apt update -y
+          apt install -y google-chrome-stable
+      - name: Prepare database
+        run: bin/rails db:prepare
+      - name: Run tests
+        env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+        run: bin/rails test:system test
+      - name: Upload test artifacts
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: System test screenshots
+          path: tmp/screenshots/
