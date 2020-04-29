@@ -1,0 +1,22 @@
+<%= form_with(model: headword, local: true) do |form| %>
+  <% if headword.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(headword.errors.count, "error") %> prohibited this headword from being saved:</h2>
+
+      <ul>
+        <% headword.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :word %>
+    <%= form.text_field :word %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

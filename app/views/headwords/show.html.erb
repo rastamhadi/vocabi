@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @headword.word %>
+</p>
+
+<%= link_to 'Edit', edit_headword_path(@headword) %> |
+<%= link_to 'Back', headwords_path %>

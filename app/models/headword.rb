@@ -1,0 +1,2 @@
+class Headword < ApplicationRecord
+end
