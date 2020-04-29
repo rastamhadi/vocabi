@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 class HeadwordsController < ApplicationController
-  before_action :set_headword, only: [:show, :edit, :update, :destroy]
+  before_action :set_headword, only: %i[show edit update destroy]
 
   def index
     @headwords = Headword.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @headword = Headword.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @headword = Headword.new(headword_params)
