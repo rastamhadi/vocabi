@@ -4,6 +4,7 @@ require 'test_helper'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include FactoryBot::Syntax::Methods
+  include Devise::Test::IntegrationHelpers
 
   driven_by :selenium, using: :headless_chrome do |driver_options|
     driver_options.add_argument('--disable-dev-sim-usage')

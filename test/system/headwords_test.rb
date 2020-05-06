@@ -3,6 +3,11 @@
 require 'application_system_test_case'
 
 class HeadwordsTest < ApplicationSystemTestCase
+  setup do
+    user = create(:user)
+    sign_in user
+  end
+
   test 'visiting the index' do
     visit headwords_url
     assert_selector 'h1', text: 'Headwords'

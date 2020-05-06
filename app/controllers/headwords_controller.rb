@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class HeadwordsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_headword, only: %i[show edit update destroy]
 
   def index
