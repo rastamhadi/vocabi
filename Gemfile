@@ -18,6 +18,7 @@ gem 'webpacker', '~> 5.1'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -29,7 +30,6 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'faker'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
