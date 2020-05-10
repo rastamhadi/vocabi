@@ -5,5 +5,10 @@
   <%= @headword.word %>
 </p>
 
+<p>
+  <strong>Part of speech:</strong>
+  <%= @headword.part_of_speech %>
+</p>
+
 <%= link_to 'Edit', edit_headword_path(@headword) %> |
 <%= link_to 'Back', headwords_path %>
