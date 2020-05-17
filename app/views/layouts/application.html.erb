@@ -38,7 +38,7 @@
         <div class="col-lg-12">
           <% flash.each do |type, messages| %>
             <% Array(messages).select(&:present?).each do |message| %>
-              <% tag.div(role: :alert, class: [:alert, "alert-#{ type.to_s == 'notice' ? 'success' : 'danger' }"]) do %>
+              <%= tag.div(role: :alert, class: [:alert, type.to_s == 'notice' ? 'alert-success' : 'alert-danger']) do %>
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <%= message %>
               <% end %>

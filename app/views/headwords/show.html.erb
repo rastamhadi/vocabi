@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1><%= Headword.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Word:</strong>
-  <%= @headword.word %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= Headword.human_attribute_name(:word) %>:</strong></dt>
+  <dd><%= @headword.word %></dd>
+  <dt><strong><%= Headword.human_attribute_name(:part_of_speech) %>:</strong></dt>
+  <dd><%= @headword.part_of_speech %></dd>
+</dl>
 
-<p>
-  <strong>Part of speech:</strong>
-  <%= @headword.part_of_speech %>
-</p>
-
-<%= link_to 'Edit', edit_headword_path(@headword) %> |
-<%= link_to 'Back', headwords_path %>
+<%= link_to t('helpers.links.back'), headwords_path, class: 'btn btn-default'  %>
+<%= link_to t('helpers.links.edit'), edit_headword_path(@headword), class: 'btn btn-primary' %>
+<%= link_to t('helpers.links.destroy'), headword_path(@headword), method: 'delete', data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-danger' %>
