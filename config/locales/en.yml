@@ -8,7 +8,11 @@ en:
       destroy: Delete
       new: New
       edit: Edit
+      sign_out: Sign out
+    submit:
+      sign_in: Sign in
     titles:
       edit: Edit %{model}
       save: Save %{model}
       new: New %{model}
+      sign_in: Sign in
