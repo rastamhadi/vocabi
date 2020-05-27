@@ -1,0 +1,6 @@
+<%= simple_form_for @example do |f| %>
+  <%= f.input :sentence %>
+  <%= f.input :meaning %>
+  <%= f.button :submit, class: 'btn-primary' %>
+  <%= link_to t('helpers.links.cancel'), examples_path, class: 'btn btn-default' %>
+<% end %>

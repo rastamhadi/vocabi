@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h1><%= Example.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Example.human_attribute_name(:sentence) %>:</strong></dt>
+  <dd><%= @example.sentence %></dd>
+  <dt><strong><%= Example.human_attribute_name(:meaning) %>:</strong></dt>
+  <dd><%= @example.meaning %></dd>
+</dl>
+
+<%= link_to t('helpers.links.back'), examples_path, class: 'btn btn-default'  %>
+<%= link_to t('helpers.links.edit'), edit_example_path(@example), class: 'btn btn-primary' %>
+<%= link_to t('helpers.links.destroy'), @example, method: 'delete', data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-danger' %>

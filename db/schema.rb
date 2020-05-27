@@ -10,16 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_205420) do
+ActiveRecord::Schema.define(version: 2020_05_27_182931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "examples", force: :cascade do |t|
+    t.string "sentence", null: false
+    t.string "meaning", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "headwords", force: :cascade do |t|
     t.string "word"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "part_of_speech", null: false
+    t.string "definition", default: "", null: false
   end
 
   create_table "users", force: :cascade do |t|

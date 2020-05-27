@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1><%= Example.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Example.human_attribute_name(:id) %></th>
+      <th><%= Example.human_attribute_name(:sentence) %></th>
+      <th><%= Example.human_attribute_name(:meaning) %></th>
+      <th><%= t('helpers.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @examples.each do |example| %>
+      <tr>
+        <td><%= link_to example.id, example %></td>
+        <td><%= example.sentence %></td>
+        <td><%= example.meaning %></td>
+        <td>
+          <%= link_to t('helpers.links.edit'), edit_example_path(example), class: 'btn btn-primary btn-sm' %>
+          <%= link_to t('helpers.links.destroy'), example, method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('helpers.links.new'), new_example_path, class: 'btn btn-primary' %>

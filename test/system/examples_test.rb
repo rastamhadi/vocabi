@@ -13,11 +13,11 @@ class ExamplesTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Examples'
   end
 
-  test 'creating a Example' do
+  test 'creating an Example' do
     example = build_stubbed(:example)
 
     visit examples_url
-    click_on 'New Example'
+    click_on 'New'
 
     fill_in 'Meaning', with: example.meaning
     fill_in 'Sentence', with: example.sentence
@@ -29,7 +29,7 @@ class ExamplesTest < ApplicationSystemTestCase
     click_on 'Back'
   end
 
-  test 'updating a Example' do
+  test 'updating an Example' do
     _old_example = create(:example)
     new_example = build_stubbed(:example)
 
@@ -46,12 +46,12 @@ class ExamplesTest < ApplicationSystemTestCase
     click_on 'Back'
   end
 
-  test 'destroying a Example' do
+  test 'destroying an Example' do
     create(:example)
 
     visit examples_url
     page.accept_confirm do
-      click_on 'Destroy', match: :first
+      click_on 'Delete', match: :first
     end
 
     assert_text 'Example was successfully destroyed'
