@@ -1,15 +1,7 @@
-<%# frozen_string_literal: true %>
-<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
-  <%%= f.error_notification %>
-  <%%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
+<%%= simple_form_for @<%= model_resource_name %> do |f| %>
   <%- attributes.each do |attribute| -%>
-    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+  <%%= f.input :<%= attribute.column_name %> %>
   <%- end -%>
-  </div>
-
-  <div class="form-actions">
-    <%%= f.button :submit %>
-  </div>
+  <%%= f.button :submit, class: 'btn-primary' %>
+  <%%= link_to t('helpers.links.cancel'), <%= index_helper %>_path, class: 'btn btn-default' %>
 <%% end %>
