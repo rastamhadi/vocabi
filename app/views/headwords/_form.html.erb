@@ -1,6 +1,7 @@
 <%= simple_form_for @headword do |f| %>
   <%= f.input :word %>
   <%= f.input :part_of_speech, collection: Headword.parts_of_speech.keys %>
+  <%= f.input :definition %>
   <%= f.button :submit, class: 'btn-primary' %>
   <%= link_to t('helpers.links.cancel'), headwords_path, class: 'btn btn-default' %>
 <% end %>

@@ -46,6 +46,6 @@ class HeadwordsController < ApplicationController
   end
 
   def headword_params
-    params.require(:headword).permit(:word, :part_of_speech)
+    params.require(:headword).permit(:word, :part_of_speech, :definition)
   end
 end
