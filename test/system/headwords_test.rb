@@ -17,7 +17,7 @@ class HeadwordsTest < ApplicationSystemTestCase
     headword = build_stubbed(:headword)
 
     visit headwords_url
-    click_on 'New Headword'
+    click_on 'New'
 
     fill_in 'Word', with: headword.word
     select headword.part_of_speech, from: 'Part of speech'
@@ -51,7 +51,7 @@ class HeadwordsTest < ApplicationSystemTestCase
 
     visit headwords_url
     page.accept_confirm do
-      click_on 'Destroy', match: :first
+      click_on 'Delete', match: :first
     end
 
     assert_text 'Headword was successfully destroyed'
