@@ -15,6 +15,9 @@ AllCops:
 Bundler/GemComment:
   Enabled: false
 
+Lint/ConstantResolution:
+  Enabled: false
+
 Style/ClassAndModuleChildren:
   Exclude:
     - 'test/channels/application_cable/connection_test.rb'
