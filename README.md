@@ -1,24 +1,33 @@
-# README
+# Vocabi
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
 
-Things you may want to cover:
+- Ruby 2.6.2
+- rbenv
+- Bundler
 
-* Ruby version
+## Setup
 
-* System dependencies
+1. Install PostgreSQL.
 
-* Configuration
+   ```console
+   $ brew install postgresql
+   ```
 
-* Database creation
+2. Install gems.
 
-* Database initialization
+   ```console
+   $ bundle install
+   ```
 
-* How to run the test suite
+3. Setup database.
 
-* Services (job queues, cache servers, search engines, etc.)
+   ```console
+   $ bin/rails db:setup
+   ```
 
-* Deployment instructions
+4. Precompile assets.
 
-* ...
+   ```console
+   $ bin/rails assets:precompile
+   ```
