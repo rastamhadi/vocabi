@@ -2,8 +2,10 @@
 
 module HowToStudyKorean
   class Lesson
+    attr_reader :number, :group
+
     def self.all
-      @all ||= Unit.all.flat_map(&:lesson_groups).flat_map(&:lessons)
+      @all ||= Unit.all.flat_map(&:lesson_groups).flat_map(&:lessons).index_by(&:number)
     end
 
     def initialize(number, group)

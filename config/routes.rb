@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   resources :headwords
   resources :examples
+
+  namespace :how_to_study_korean do
+    resources :lessons, only: %i[index show]
+  end
 end

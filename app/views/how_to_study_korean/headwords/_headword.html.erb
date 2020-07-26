@@ -1,0 +1,8 @@
+<%= simple_form_for headword, wrapper: :inline_form, html: { class: 'form-inline', id: "new_headword_#{headword.word}" } do |f| %>
+  <% f.with_options(disabled: headword.imported?) do |f| %>
+    <%= f.input :word %>
+    <%= f.input :definition %>
+    <%= f.input :part_of_speech, collection: Headword.parts_of_speech.keys %>
+    <%= f.button :submit, class: 'btn-primary' %>
+  <% end %>
+<% end %>

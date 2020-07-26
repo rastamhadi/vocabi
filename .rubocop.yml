@@ -9,6 +9,7 @@ AllCops:
     - config.ru
     - config/application.rb
     - config/boot.rb
+    - config/initializers/simple_form_bootstrap.rb
     - config/puma.rb
     - db/schema.rb
 

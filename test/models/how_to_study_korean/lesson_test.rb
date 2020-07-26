@@ -8,8 +8,9 @@ module HowToStudyKorean
       lessons = Lesson.all
 
       assert_equal(175, lessons.size)
-      lessons.each do |lesson|
+      lessons.each do |number, lesson|
         assert_kind_of(Lesson, lesson)
+        assert_equal(lesson.number, number)
       end
     end
 
