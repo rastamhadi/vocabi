@@ -15,6 +15,9 @@ AllCops:
 Bundler/GemComment:
   Enabled: false
 
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
 Lint/ConstantResolution:
   Enabled: false
 
