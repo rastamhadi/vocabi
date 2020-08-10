@@ -20,9 +20,9 @@ module Scrapers
 
           within('#new_headword_한국') do
             click_on 'Create Headword'
-          end
 
-          assert_text 'Headword was successfully created'
+            assert_no_button 'Create Headword'
+          end
         end
       end
     end

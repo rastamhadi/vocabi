@@ -1,8 +1,8 @@
-<%= simple_form_for headword, wrapper: :inline_form, html: { class: 'form-inline', id: "new_headword_#{headword.word}" } do |f| %>
-  <% f.with_options(disabled: headword.imported?) do |f| %>
+<div data-controller="remote-form" data-target="remote-form.form">
+  <%= simple_form_for headword, remote: true, url: how_to_study_korean_headwords_path, wrapper: :inline_form, defaults: { disabled: headword.imported? }, html: { class: 'form-inline', id: "new_headword_#{headword.word}", data: { action: 'ajax:success->remote-form#update ajax:error->remote-form#update' } } do |f| %>
     <%= f.input :word %>
     <%= f.input :definition %>
     <%= f.input :part_of_speech, collection: Headword.parts_of_speech.keys %>
-    <%= f.button :submit, class: 'btn-primary' %>
+    <%= f.button :submit, class: 'btn-primary' unless headword.imported? %>
   <% end %>
-<% end %>
+</div>
