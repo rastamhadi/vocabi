@@ -1,0 +1,12 @@
+production: &production
+  korean:
+    noun:
+      - Korean::Subject
+      - Korean::Object
+    verb: []
+    adjective: []
+    adverb: []
+
+development: *production
+
+test: *production
