@@ -20,6 +20,7 @@ class HeadwordsTest < ApplicationSystemTestCase
     click_on 'New'
 
     fill_in 'Word', with: headword.word
+    fill_in 'Definition', with: headword.definition
     select headword.part_of_speech, from: 'Part of speech'
     click_on 'Create Headword'
 
