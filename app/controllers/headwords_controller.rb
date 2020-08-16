@@ -8,7 +8,9 @@ class HeadwordsController < ApplicationController
     @headwords = Headword.all
   end
 
-  def show; end
+  def show
+    @headword.build_creatable_inflections
+  end
 
   def new
     @headword = Headword.new

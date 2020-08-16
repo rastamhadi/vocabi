@@ -3,7 +3,9 @@
 FactoryBot.define do
   factory :inflection do
     headword
-    word { Faker::Lorem.word }
-    inflector { Faker::Lorem.word }
+    inflector { headword.inflectors.sample }
+    word do
+      I18n.with_locale(:ko) { Faker::Lorem.word }
+    end
   end
 end

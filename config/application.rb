@@ -14,5 +14,6 @@ module Vocabi
     config.load_defaults 6.0
 
     config.x.how_to_study_korean = config_for(:how_to_study_korean)
+    config.x.inflectors = config_for(:inflectors)
   end
 end

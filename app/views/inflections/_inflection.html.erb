@@ -1,0 +1,7 @@
+<%= tag.div id: "inflection_#{inflection.word}", data: { controller: 'remote-form', target: 'remote-form.form' } do %>
+  <%= simple_form_for [@headword, inflection], remote: true, wrapper: :inline_form, html: { class: 'form-inline', id: "#{inflection.inflector.demodulize.underscore}_form", data: { action: 'ajax:success->remote-form#update ajax:error->remote-form#update' } } do |f| %>
+    <%= f.input :word %>
+    <%= f.input :inflector, collection: @headword.inflectors %>
+    <%= f.button :submit, class: 'btn-primary' %>
+  <% end %>
+<% end %>

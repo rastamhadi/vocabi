@@ -31,8 +31,8 @@ class HeadwordsTest < ApplicationSystemTestCase
   end
 
   test 'updating a Headword' do
-    _old_headword = create(:headword)
-    new_headword = build_stubbed(:headword)
+    _old_headword = create(:headword, :noun)
+    new_headword = build_stubbed(:headword, :noun)
 
     visit headwords_url
     click_on 'Edit', match: :first

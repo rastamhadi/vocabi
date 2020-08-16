@@ -6,21 +6,16 @@ class InflectionsController < ApplicationController
   before_action :set_inflection, only: %i[update destroy]
 
   def create
-    @inflection = Inflection.new(inflection_params)
+    @inflection = @headword.inflections.new(inflection_params)
+    @inflection.save
 
-    if @inflection.save
-      redirect_to @inflection, notice: 'Inflection was successfully created.'
-    else
-      render :new
-    end
+    render @inflection
   end
 
   def update
-    if @inflection.update(inflection_params)
-      redirect_to @inflection, notice: 'Inflection was successfully updated.'
-    else
-      render :edit
-    end
+    @inflection.update(inflection_params)
+
+    render @inflection
   end
 
   def destroy
