@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_182931) do
+ActiveRecord::Schema.define(version: 2020_08_16_184925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2020_05_27_182931) do
     t.string "definition", default: "", null: false
   end
 
+  create_table "inflections", force: :cascade do |t|
+    t.bigint "headword_id", null: false
+    t.string "word", null: false
+    t.string "inflector", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["headword_id", "inflector"], name: "index_inflections_on_headword_id_and_inflector", unique: true
+    t.index ["headword_id"], name: "index_inflections_on_headword_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -42,4 +52,5 @@ ActiveRecord::Schema.define(version: 2020_05_27_182931) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "inflections", "headwords"
 end

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :headwords
+  resources :headwords do
+    resources :inflections, only: %i[create update destroy]
+  end
+
   resources :examples
 
   namespace :how_to_study_korean do
