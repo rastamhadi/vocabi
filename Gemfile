@@ -8,7 +8,7 @@ ruby '2.6.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'gimchi'
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.10'
 gem 'mechanize'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
