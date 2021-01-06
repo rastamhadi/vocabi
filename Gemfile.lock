@@ -158,7 +158,7 @@ GEM
     net-http-persistent (4.0.0)
       connection_pool (~> 2.2)
     nio4r (2.5.4)
-    nokogiri (1.11.0)
+    nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     notiffany (0.1.3)
