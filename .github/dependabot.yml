@@ -1,0 +1,43 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  allow:
+  - dependency-type: direct
+  - dependency-type: indirect
+  ignore:
+  - dependency-name: i18n
+    versions:
+    - 1.8.10
+  - dependency-name: mini_mime
+    versions:
+    - 1.0.3
+  - dependency-name: regexp_parser
+    versions:
+    - 2.1.1
+  - dependency-name: puma
+    versions:
+    - 5.2.1
+  - dependency-name: msgpack
+    versions:
+    - 1.4.2
+  - dependency-name: webmock
+    versions:
+    - 3.11.1
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@rails/activestorage"
+    versions:
+    - 6.1.1
+  - dependency-name: "@rails/ujs"
+    versions:
+    - 6.1.1
